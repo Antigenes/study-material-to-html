@@ -14,6 +14,21 @@ A Codex skill that turns user-provided slides, PDFs, documents, or notes into a 
 
 The skill adapts to the user's requested language, depth, audience, design, and output format. A single self-contained HTML is the default when practical.
 
+## Output layout / 成品放在哪里
+
+Unless you specify another location, the finished lesson sits beside the source files. Separate source files get separate, clearly named lessons; related files combined into one lesson get a shared topic name. The skill does not put all lessons into a generic `output/` folder.
+
+```text
+course/
+├── Topic_5_1.pdf
+├── Topic_5_2.pdf
+├── Topic_5-教学版.html          # One combined, self-contained lesson
+├── Topic_6_1.pdf
+└── Topic_6_1-教学版.html        # A separate lesson
+```
+
+If images or other assets must remain separate, that lesson becomes one portable folder such as `Topic_5-教学版/index.html` with its own `assets/` directory. / 默认与原材料放在同一目录；只有需要外部资源时，才为该课建立同名文件夹。
+
 ## Install / 安装
 
 Clone this repository into your Codex skills directory:
