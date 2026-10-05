@@ -10,9 +10,9 @@ A Codex skill that turns user-provided slides, PDFs, documents, or notes into a 
 - Explain concepts, algorithms, worked examples, proofs, complexity bounds, and edge cases. / 讲解概念、算法、例题、证明、复杂度与边界条件。
 - Put original figures beside the explanations that use them, and explain animation frames step by step. / 保留原图，对动画分帧逐步讲解。
 - Distinguish source claims, teaching additions, and corrections. / 区分课件原文、教学补充和需要指出的笔误。
-- Build a readable offline HTML with navigation, useful interactions, and browser checks. / 生成适合学习的离线网页，并检查图片、交互和排版。
+- Build one self-contained offline HTML with embedded figures, styles, and scripts; check desktop and phone browsers. / 把图片、样式和脚本全部嵌入单个离线 HTML，并检查电脑与手机浏览器。
 
-The skill adapts to the user's requested language, depth, audience, design, and output format. A single self-contained HTML is the default when practical.
+The skill adapts to the user's requested language, depth, audience, and design. The final deliverable is a single self-contained HTML file that can be moved or shared without an assets folder.
 
 ## Output layout / 成品放在哪里
 
@@ -27,7 +27,11 @@ course/
 └── Topic_6_1-教学版.html        # A separate lesson
 ```
 
-If images or other assets must remain separate, that lesson becomes one portable folder such as `Topic_5-教学版/index.html` with its own `assets/` directory. / 默认与原材料放在同一目录；只有需要外部资源时，才为该课建立同名文件夹。
+All required resources are embedded in each final HTML. Build files and temporary renders are not part of the deliverable. / 每个最终 HTML 都自带所需资源；复制这一个文件即可离线阅读。
+
+## Phone browser option / 手机浏览器选项
+
+Phone-sized layouts work by default. Add **“手机优先 / mobile-first”** to your request when the lesson will mainly be read on a phone; Codex will prioritize narrow-screen reading and may add a phone reading-mode control when useful. / 默认适配手机；若主要在手机上学习，请在要求中注明“手机优先”。
 
 ## Install / 安装
 
@@ -41,7 +45,7 @@ Then start a new Codex task and invoke `$study-material-to-html`, or ask Codex t
 
 之后开启新的 Codex 任务，附上学习材料并输入例如：
 
-> 使用 `$study-material-to-html`，把这些课件做成中文教学 HTML。请完整覆盖内容，保留原图，逐步讲解算法和证明，让我只看网页就能学习。
+> 使用 `$study-material-to-html`，把这些课件做成中文教学 HTML。请完整覆盖内容，保留原图，逐步讲解算法和证明，最终交付可离线打开的单个 HTML。手机优先。
 
 ## Repository layout / 仓库内容
 

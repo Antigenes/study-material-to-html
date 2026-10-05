@@ -11,10 +11,10 @@ Read this when implementing or verifying the HTML artifact. Adapt tools to the a
 
 ## Offline and browser behaviour
 
-1. Open the final HTML from its local file path or from the packaged offline directory. Verify that no required font, script, image, style, or equation renderer depends on the network.
+1. Copy only the final `.html` to a temporary directory and open that copy with network access disabled. Verify that every required figure, font, script, style, equation renderer, and interaction still works. Inspect markup and network activity for relative asset requests, CDN imports, or fetches needed by the lesson.
 2. Confirm all images load and can be viewed at useful size. For step-through figures, check the first, middle, and last frames; buttons, slider, caption, counter, and description should stay synchronized.
 3. Try chapter links, reveal controls, keyboard focus, image enlargement, font adjustments, and the original-page viewer if present. Check for broken internal links or duplicate IDs.
-4. Inspect a desktop viewport and a narrow mobile viewport. Text should remain readable, images retain aspect ratio, code and tables scroll locally if needed, and the whole page should not scroll sideways.
+4. Inspect a desktop viewport and phone-sized viewports, including a narrow portrait layout. Text should remain readable without zooming, images retain aspect ratio, touch controls and navigation remain usable, code and tables scroll locally if needed, and the whole page should not scroll sideways. If a phone reading-mode control was requested, test both states and its persistence if provided.
 5. Inspect browser console errors. A static HTML parser or script syntax check can catch malformed tags and broken JavaScript before browser QA; it does not replace visual inspection.
 
 Avoid asserting full coverage solely from a matching page count. The lesson text, figures, captions, proofs, and examples must actually convey the source content.
